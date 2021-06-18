@@ -32,6 +32,8 @@ public:
 	//POS:mustra el tablero por consola. Se muestra por planos
 	void verTablero();
 
+	void jugarFicha(int numeroDePlano,int numeroDeColumna,int numeroDeJugador);
+
 
 };
 

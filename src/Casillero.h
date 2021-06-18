@@ -8,12 +8,14 @@
 #ifndef CASILLERO_H_
 #define CASILLERO_H_
 #include "Ficha.h"
+#include "Lista.h"
 
 class Casillero{
 
 private:
 
 	Ficha *ficha;
+	Lista<Casillero*> *listaDeCasillerosAdyacentes;
 
 public:
 

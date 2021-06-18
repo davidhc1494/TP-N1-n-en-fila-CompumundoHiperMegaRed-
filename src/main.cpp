@@ -15,12 +15,21 @@ using namespace std;
 
 int main(){
 
-
 	Tablero *t = new Tablero();
 
-	t->inicializarTablero(4,4,4);
+	t->inicializarTablero(3,3,3);
+
+	t->verTablero();
+
+	t->jugarFicha(1, 2, 1);
+	t->jugarFicha(1, 2, 1);
+	t->jugarFicha(1, 2, 1);
+	t->jugarFicha(1, 3, 1);
+	t->jugarFicha(2, 2, 1);
+	t->jugarFicha(3, 2, 1);
 
 	t->verTablero();
 
 	return 0;
+
 }

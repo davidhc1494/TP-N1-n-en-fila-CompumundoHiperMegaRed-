@@ -71,6 +71,25 @@ void Tablero::verTablero(){
 
 }
 
+void Tablero::jugarFicha(int numeroDePlano,int numeroDeColumna,int numeroDeJugador){
+
+	bool fichaJugada = false;
+	int contadorDeFilas = this->tablero->obtener(1)->obtener(1)->contarElementos();
+
+
+	while(contadorDeFilas>0 && fichaJugada == false){
+
+		if(this->tablero->obtener(numeroDePlano)->obtener(contadorDeFilas)->obtener(numeroDeColumna)->verFicha()->verNumeroDeJugador() == 0 ){
+
+			this->tablero->obtener(numeroDePlano)->obtener(contadorDeFilas)->obtener(numeroDeColumna)->verFicha()->cambiarNumeroDeFicha(numeroDeJugador);
+			fichaJugada = true;
+		}
+
+		contadorDeFilas--;
+
+	}
+
+}
 
 
 
