@@ -9,13 +9,17 @@
 #define CASILLERO_H_
 #include "Ficha.h"
 #include "Lista.h"
+#include "Casillero.h"
+#include <string>
+
+class CasilleroAdyacente;
 
 class Casillero{
 
 private:
 
 	Ficha *ficha;
-	Lista<Casillero*> *listaDeCasillerosAdyacentes;
+	Lista<CasilleroAdyacente*>* listaDeCasilleroAdyacentes;
 
 public:
 
@@ -27,9 +31,36 @@ public:
 	//POS:devuelve un puntero a la ficha que esta en el casillero
 	Ficha* verFicha();
 
+	Lista<CasilleroAdyacente*>* getListaDeCasilleroAdyacentes();
+
+	void agregarCasilleroAdyacente(Casillero* casillero, std::string coordenada);
+
+	void verCasilleroAdyacentes();
+
 };
 
 
+/*----------------------------------------------------------------*/
+
+class CasilleroAdyacente{
+private:
+
+	std::string coordenada;
+	Casillero* casilleroAdyacente;
+
+public:
+
+CasilleroAdyacente(std::string coordenada, Casillero* casillero);
+
+std::string getCoordenada();
+
+void setCoordenada(std::string coordenada);
+
+Casillero* getCasillero();
+
+void setCasilleroAdyacente(Casillero* casillero);
+
+};
 
 
 #endif /* CASILLERO_H_ */

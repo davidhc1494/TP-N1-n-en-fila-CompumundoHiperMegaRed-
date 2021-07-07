@@ -34,6 +34,14 @@ public:
 
 	void jugarFicha(int numeroDePlano,int numeroDeColumna,int numeroDeJugador);
 
+	Lista<Lista<Lista<Casillero*>*>*>* getTableo();
+
+	void vincularConCasilleroAdyacentes();
+
+	void revisarEnZ(Casillero* casillero);
+
+	void revisarLinea(Casillero* casillero,std::string coordenada1,std::string coordenada2);
+
 
 };
 
