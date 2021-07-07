@@ -22,6 +22,10 @@ public:
 
 	void Jugar();
 
+	void ingresarTamanioDeTablero();
+
+	void ingresarCantidadDeJugadoresAJugar();
+
 };
 
 

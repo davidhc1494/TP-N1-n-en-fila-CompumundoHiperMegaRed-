@@ -18,6 +18,9 @@ private:
 	TipoDeCarta tipoDeCarta;
 
 public:
+
+
+
 	/*
 	 * Post: crea una instancia de carta segun el tipo de carta que se le pasa.
 	 */
