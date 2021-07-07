@@ -19,7 +19,6 @@ private:
 	int numeroDeJugador;
 	Ficha* fichas;
 	Lista<Carta*>* cartas;
-	//Mazo* mazo;
 
 public:
 	/*
@@ -32,7 +31,6 @@ public:
 	 * Pre:
 	 * Post: saca una carta del maso de cartas y la agrega a la lista de cartas del jugador.
 	 */
-	Carta* sacarCarta();
 
 	Ficha* getFicha();
 

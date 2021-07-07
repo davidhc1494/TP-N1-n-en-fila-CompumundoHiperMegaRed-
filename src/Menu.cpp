@@ -13,8 +13,6 @@ Menu::Menu(){
 
 void Menu::Jugar(){
 
-	int numeroDePlano;
-	int numeroDeColumna;
 	bool hayGanador = false;
 
 	this->ingresarTamanioDeTablero();
@@ -29,16 +27,11 @@ void Menu::Jugar(){
 	while(hayGanador ==false){
 		while(this->juego->getListaDeJugadores()->avanzarCursor() && hayGanador == false){
 
-			do{
-				std::cout<<"TURNO DEL JUGADOR N°: "<<this->juego->getListaDeJugadores()->obtenerCursor()->getFicha()->verNumeroDeJugador()<<std::endl;
-				std::cout<<"Ingrese numero de plano: "<<std::endl;
-				std::cin>>numeroDePlano;
-				std::cout<<"Ingrese numero de columna: "<<std::endl;
-				std::cin>>numeroDeColumna;
-			}while(this->juego->getTablero()->getTableo()->obtener(numeroDePlano)->obtener(1)->obtener(numeroDeColumna)->verFicha()->verNumeroDeJugador()!=0);
+			std::cout<<" ¿Quiere jugar una carta? "<<std::endl;
 
-			hayGanador = this->juego->getTablero()->jugarFicha(numeroDePlano, numeroDeColumna, this->juego->getListaDeJugadores()->obtenerCursor()->getFicha()->verNumeroDeJugador());
-			this->juego->getTablero()->verTablero();
+
+			hayGanador = this->ingresarPlanoYColumna(this->juego->getListaDeJugadores()->obtenerCursor());
+
 		}
 		this->juego->getListaDeJugadores()->iniciarCursor();
 	}
@@ -70,5 +63,26 @@ void Menu::ingresarCantidadDeJugadoresAJugar(){
 	for(int i = 1;i<=numeroDeNuevoJugador;i++){
 		this->juego->agregarJugador(i);
 	}
+	this->juego->iniciarManoDeJuGadores();
 }
 
+bool Menu::ingresarPlanoYColumna(Jugador* jugador){
+
+	int numeroDePlano;
+	int numeroDeColumna;
+	bool hayGanador = false;
+
+	do{
+		std::cout<<"TURNO DEL JUGADOR N°: "<<jugador->getFicha()->verNumeroDeJugador()<<std::endl;
+		//this->juego->mostrarCartasDeJugador(jugador);
+		std::cout<<"Ingrese numero de plano: "<<std::endl;
+		std::cin>>numeroDePlano;
+		std::cout<<"Ingrese numero de columna: "<<std::endl;
+		std::cin>>numeroDeColumna;
+	}while(this->juego->getTablero()->getTableo()->obtener(numeroDePlano)->obtener(1)->obtener(numeroDeColumna)->verFicha()->verNumeroDeJugador()!=0);
+
+	hayGanador = this->juego->getTablero()->jugarFicha(numeroDePlano, numeroDeColumna, jugador->getFicha()->verNumeroDeJugador());
+	this->juego->getTablero()->verTablero();
+
+	return hayGanador;
+}

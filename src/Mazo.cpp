@@ -6,6 +6,7 @@
  */
 
 #include "Mazo.h"
+#include <iostream>
 
 Mazo::Mazo(){
 	this->cantidadDeCartas = 40;
@@ -31,4 +32,18 @@ Carta* Mazo::obtenerFrente(){
 
 Carta* Mazo::sacarCarta(){
 	return this->cartas->desacolar();
+}
+
+void Mazo::inicializarMazo(){
+
+	for(int i = 1;i <= this->cantidadDeCartas;i++){
+		Carta* nuevaCarta1 = new Carta(CartaJugadaDoble);
+		this->agregarCartas(nuevaCarta1);
+		Carta* nuevaCarta2 = new Carta(CartaBloquearTurno);
+		this->agregarCartas(nuevaCarta2);
+		i++;
+		Carta* nuevaCarta3 = new Carta(CartaNoLevantaCarta);
+		this->agregarCartas(nuevaCarta3);
+		i++;
+	}
 }

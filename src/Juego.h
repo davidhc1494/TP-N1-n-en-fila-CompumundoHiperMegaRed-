@@ -27,8 +27,15 @@ public:
 
 	Lista<Jugador*>* getListaDeJugadores();
 
+	Mazo* getMazo();
 
 	void agregarJugador(int numeroDeNuevoJugador);
+
+	void iniciarManoDeJuGadores();
+
+	void tomarCarta(Jugador* jugador);
+
+	void mostrarCartasDeJugador(Jugador* jugador);
 
 };
 

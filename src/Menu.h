@@ -26,6 +26,8 @@ public:
 
 	void ingresarCantidadDeJugadoresAJugar();
 
+	bool ingresarPlanoYColumna(Jugador* jugador);
+
 };
 
 

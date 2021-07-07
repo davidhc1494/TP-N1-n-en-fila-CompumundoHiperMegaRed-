@@ -26,6 +26,9 @@ public:
 	 * Pre:
 	 * Post: crea el mazo con una cantidad de cartas que se pasan por parametro.
 	 */
+
+	void inicializarMazo();
+
 	Mazo(int cantidadDeCartas);
 
 	/*
