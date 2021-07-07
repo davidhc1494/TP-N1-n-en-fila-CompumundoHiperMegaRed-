@@ -9,7 +9,16 @@
 Tablero::Tablero(){
 
 	this->tablero = new Lista<Lista<Lista<Casillero*>*>*>();
+	this->tamanio = 0;
 
+}
+
+int Tablero::getTamanio(){
+	return this->tamanio;
+}
+
+void Tablero::setTamanio(int tamanio){
+	this->tamanio = tamanio;
 }
 
 void Tablero::inicializarTablero(int x,int y,int z){
@@ -72,40 +81,56 @@ void Tablero::verTablero(){
 
 }
 
-void Tablero::jugarFicha(int numeroDePlano,int numeroDeColumna,int numeroDeJugador){
+bool Tablero::jugarFicha(int numeroDePlano,int numeroDeColumna,int numeroDeJugador){
 
 	bool fichaJugada = false;
-	int contadorDeFilas = this->tablero->obtener(1)->obtener(1)->contarElementos();
+	bool gano = false;
+	int contadorDeFilas = this->getTamanio();
 
 
-	while(contadorDeFilas>0 && fichaJugada == false){
+	while(contadorDeFilas>0 && fichaJugada == false && gano == false){
 
 		if(this->tablero->obtener(numeroDePlano)->obtener(contadorDeFilas)->obtener(numeroDeColumna)->verFicha()->verNumeroDeJugador() == 0 ){
 
 			this->tablero->obtener(numeroDePlano)->obtener(contadorDeFilas)->obtener(numeroDeColumna)->verFicha()->cambiarNumeroDeFicha(numeroDeJugador);
-			this->revisarEnZ(this->tablero->obtener(numeroDePlano)->obtener(contadorDeFilas)->obtener(numeroDeColumna));
-			std::cout<<""<<std::endl;
-			this->revisarLinea(this->tablero->obtener(numeroDePlano)->obtener(contadorDeFilas)->obtener(numeroDeColumna), "x+", "x-");
-			this->revisarLinea(this->tablero->obtener(numeroDePlano)->obtener(contadorDeFilas)->obtener(numeroDeColumna), "y+", "y-");
-			this->revisarLinea(this->tablero->obtener(numeroDePlano)->obtener(contadorDeFilas)->obtener(numeroDeColumna), "a+", "a-");
-			this->revisarLinea(this->tablero->obtener(numeroDePlano)->obtener(contadorDeFilas)->obtener(numeroDeColumna), "b+", "b-");
-			this->revisarLinea(this->tablero->obtener(numeroDePlano)->obtener(contadorDeFilas)->obtener(numeroDeColumna), "c+", "c-");
-			this->revisarLinea(this->tablero->obtener(numeroDePlano)->obtener(contadorDeFilas)->obtener(numeroDeColumna), "e+", "e-");
-			this->revisarLinea(this->tablero->obtener(numeroDePlano)->obtener(contadorDeFilas)->obtener(numeroDeColumna), "f+", "f-");
-			this->revisarLinea(this->tablero->obtener(numeroDePlano)->obtener(contadorDeFilas)->obtener(numeroDeColumna), "g+", "g-");
-			this->revisarLinea(this->tablero->obtener(numeroDePlano)->obtener(contadorDeFilas)->obtener(numeroDeColumna), "h+", "h-");
-			this->revisarLinea(this->tablero->obtener(numeroDePlano)->obtener(contadorDeFilas)->obtener(numeroDeColumna), "i+", "i-");
-			this->revisarLinea(this->tablero->obtener(numeroDePlano)->obtener(contadorDeFilas)->obtener(numeroDeColumna), "j+", "j-");
+
+			//std::cout<<""<<std::endl;
+			if(this->revisarEnZ(this->tablero->obtener(numeroDePlano)->obtener(contadorDeFilas)->obtener(numeroDeColumna))){
+				gano = true;
+			}else if(this->revisarLinea(this->tablero->obtener(numeroDePlano)->obtener(contadorDeFilas)->obtener(numeroDeColumna), "x+", "x-")){
+				gano = true;
+			}else if(this->revisarLinea(this->tablero->obtener(numeroDePlano)->obtener(contadorDeFilas)->obtener(numeroDeColumna), "y+", "y-")){
+				gano = true;
+			}else if(this->revisarLinea(this->tablero->obtener(numeroDePlano)->obtener(contadorDeFilas)->obtener(numeroDeColumna), "a+", "a-")){
+				gano = true;
+			}else if(this->revisarLinea(this->tablero->obtener(numeroDePlano)->obtener(contadorDeFilas)->obtener(numeroDeColumna), "b+", "b-")){
+				gano = true;
+			}else if(this->revisarLinea(this->tablero->obtener(numeroDePlano)->obtener(contadorDeFilas)->obtener(numeroDeColumna), "c+", "c-")){
+				gano = true;
+			}else if(this->revisarLinea(this->tablero->obtener(numeroDePlano)->obtener(contadorDeFilas)->obtener(numeroDeColumna), "e+", "e-")){
+				gano = true;
+			}else if(this->revisarLinea(this->tablero->obtener(numeroDePlano)->obtener(contadorDeFilas)->obtener(numeroDeColumna), "f+", "f-")){
+				gano = true;
+			}else if(this->revisarLinea(this->tablero->obtener(numeroDePlano)->obtener(contadorDeFilas)->obtener(numeroDeColumna), "g+", "g-")){
+				gano = true;
+			}else if(this->revisarLinea(this->tablero->obtener(numeroDePlano)->obtener(contadorDeFilas)->obtener(numeroDeColumna), "h+", "h-")){
+				gano = true;
+			}else if(this->revisarLinea(this->tablero->obtener(numeroDePlano)->obtener(contadorDeFilas)->obtener(numeroDeColumna), "i+", "i-")){
+				gano = true;
+			}else if(this->revisarLinea(this->tablero->obtener(numeroDePlano)->obtener(contadorDeFilas)->obtener(numeroDeColumna), "j+", "j-")){
+				gano = true;
+			}
+
 			fichaJugada = true;
 		}
 
 		contadorDeFilas--;
 
 	}
-
+	return gano;
 }
 
-void Tablero::revisarEnZ(Casillero* casillero){
+bool Tablero::revisarEnZ(Casillero* casillero){
 	int valorDeN = 3;
 	int contadorDeFichasIguales = 1;
 	bool gano = false;
@@ -128,10 +153,10 @@ void Tablero::revisarEnZ(Casillero* casillero){
 		gano = true;
 		std::cout<<"Gano el jugador Numero: "<<casillero->verFicha()->verNumeroDeJugador()<<" contador: "<<contadorDeFichasIguales<<std::endl;
 	}
-
+	return gano;
 }
 
-void Tablero::revisarLinea(Casillero* casillero,std::string coordenada1,std::string coordenada2){
+bool Tablero::revisarLinea(Casillero* casillero,std::string coordenada1,std::string coordenada2){
 	int valorDeN = 3;
 	int contadorDeFichasIguales = 1;
 	bool gano = false;
@@ -165,7 +190,7 @@ void Tablero::revisarLinea(Casillero* casillero,std::string coordenada1,std::str
 		std::cout<<"Gano el jugador Numero: "<<casillero->verFicha()->verNumeroDeJugador()<<" contador: "<<contadorDeFichasIguales<<std::endl;
 	}
 
-
+	return gano;
 }
 
 Lista<Lista<Lista<Casillero*>*>*>* Tablero::getTableo(){

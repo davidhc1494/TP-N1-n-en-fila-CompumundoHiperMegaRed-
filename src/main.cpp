@@ -12,15 +12,17 @@ using namespace std;
 #include "Ficha.h"
 #include "Casillero.h"
 #include "Tablero.h"
-
+#include "Juego.h"
+#include "Menu.h"
 int main(){
 
+/*
 	Tablero *t = new Tablero();
 
 	t->inicializarTablero(4,4,4);
 
 	//t->verTablero();
-/*
+
 	t->jugarFicha(1, 2, 1);
 	t->jugarFicha(1, 2, 1);
 	t->jugarFicha(1, 2, 1);
@@ -29,8 +31,8 @@ int main(){
 	//t->jugarFicha(3, 2, 1);
 	t->jugarFicha(1, 4, 1);
 	t->verTablero();
-	t->jugarFicha(1, 2, 1);*/
-	/*
+	t->jugarFicha(1, 2, 1);
+
 	t->jugarFicha(1, 1, 1);
 	t->jugarFicha(1, 2, 2);
 	t->jugarFicha(1, 3, 3);
@@ -66,19 +68,25 @@ int main(){
 	t->jugarFicha(3, 1, 25);
 	t->jugarFicha(3, 2, 26);
 	t->jugarFicha(3, 3, 27);
-	*/
+
+
 	t->jugarFicha(1, 1, 1);
 	t->verTablero();
-	t->jugarFicha(2, 2, 1);
+	t->jugarFicha(2, 2, 2);
 	t->jugarFicha(2, 2, 1);
 	t->verTablero();
-	t->jugarFicha(3, 3, 1);
-	t->jugarFicha(3, 3, 1);
+	t->jugarFicha(3, 3, 2);
+	t->jugarFicha(3, 3, 2);
 	t->jugarFicha(3, 3, 1);
 	t->verTablero();
 
 
 	//t->vincularConCasilleroAdyacentes();
+*/
+
+	Menu* m = new Menu();
+
+	m->Jugar();
 
 	return 0;
 
