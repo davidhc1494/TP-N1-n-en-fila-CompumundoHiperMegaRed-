@@ -17,9 +17,9 @@ int main() {
 		mazo->agregarCartas(carta1);
 		Carta* carta2 = new Carta(CartaJugadaDoble);
 		mazo->agregarCartas(carta2);
-		Carta* carta3 = new Carta(CartaJugadaDoble);
+		Carta* carta3 = new Carta(CartaPierdeElTurno);
 		mazo->agregarCartas(carta3);
-		Carta* carta4 = new Carta(CartaJugadaDoble);
+		Carta* carta4 = new Carta(CartaNoLevantaCarta);
 		mazo->agregarCartas(carta4);
 
 	}

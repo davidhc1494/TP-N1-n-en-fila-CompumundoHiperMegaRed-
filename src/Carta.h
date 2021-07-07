@@ -10,7 +10,9 @@
 
 enum TipoDeCarta{
 	CartaBloquearTurno,
-	CartaJugadaDoble
+	CartaJugadaDoble,
+	CartaPierdeElTurno,
+	CartaNoLevantaCarta
 };
 
 class Carta {
