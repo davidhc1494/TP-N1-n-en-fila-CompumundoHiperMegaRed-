@@ -27,7 +27,7 @@ void Menu::Jugar(){
 	while(hayGanador ==false){
 		while(this->juego->getListaDeJugadores()->avanzarCursor() && hayGanador == false){
 
-			std::cout<<" ¿Quiere jugar una carta? "<<std::endl;
+			std::cout<<" Â¿Quiere jugar una carta? "<<std::endl;
 
 
 			hayGanador = this->ingresarPlanoYColumna(this->juego->getListaDeJugadores()->obtenerCursor());
@@ -73,7 +73,7 @@ bool Menu::ingresarPlanoYColumna(Jugador* jugador){
 	bool hayGanador = false;
 
 	do{
-		std::cout<<"TURNO DEL JUGADOR N°: "<<jugador->getFicha()->verNumeroDeJugador()<<std::endl;
+		std::cout<<"TURNO DEL JUGADOR NÂ°: "<<jugador->getFicha()->verNumeroDeJugador()<<std::endl;
 		//this->juego->mostrarCartasDeJugador(jugador);
 		std::cout<<"Ingrese numero de plano: "<<std::endl;
 		std::cin>>numeroDePlano;
@@ -85,4 +85,8 @@ bool Menu::ingresarPlanoYColumna(Jugador* jugador){
 	this->juego->getTablero()->verTablero();
 
 	return hayGanador;
+}
+
+Menu::~Menu(){
+	delete this->juego;
 }
