@@ -88,5 +88,6 @@ bool Menu::ingresarPlanoYColumna(Jugador* jugador){
 }
 
 Menu::~Menu(){
+	this->juego->~Juego();
 	delete this->juego;
 }
