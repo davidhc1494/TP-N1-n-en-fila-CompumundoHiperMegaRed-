@@ -38,7 +38,9 @@ void Casillero::verCasilleroAdyacentes(){
 }
 
 Casillero::~Casillero(){
+	this->ficha->~Ficha();
 	delete this->ficha;
+	this->listaDeCasilleroAdyacentes->~Lista();
 	delete this->listaDeCasilleroAdyacentes;
 }
 
