@@ -69,8 +69,11 @@ void mostrarCartasDeJugador(Jugador* jugador){
 }
 
 Juego::~Juego(){
+	this->tablero->~Tablero();
 	delete this->tablero;
+	this->mazo->~Mazo();
 	delete this->mazo;
+	this->listaDeJugadores->~Lista();
 	delete this->listaDeJugadores;
 }
 
