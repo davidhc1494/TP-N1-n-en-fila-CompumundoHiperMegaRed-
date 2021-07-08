@@ -91,7 +91,7 @@ void Menu::ingresarTamanioDeTablero(){
 	int tamanio = 0;
 
 	do{
-		std::cout<<"Ingrese el tamanio del tablero(tiene que ser mayor al valor N en linea): ";
+		std::cout<<"Ingrese el tamanio del tablero(tiene que ser mayor o igual al valor N en linea): ";
 		std::cin>>tamanio;
 		if(tamanio<=0){
 			std::cout<<"TAMANIO INGRESADO MENOR O IGUAL A 0(cero)"<<std::endl;
@@ -124,9 +124,9 @@ bool Menu::ingresarPlanoYColumna(Jugador* jugador){
 	do{
 		//std::cout<<"TURNO DEL JUGADOR N°: "<<jugador->getFicha()->verNumeroDeJugador()<<std::endl;
 		//this->juego->mostrarCartasDeJugador(jugador);
-		std::cout<<"Ingrese numero de plano: "<<std::endl;
+		std::cout<<"Ingrese numero de plano: ";
 		std::cin>>numeroDePlano;
-		std::cout<<"Ingrese numero de columna: "<<std::endl;
+		std::cout<<"Ingrese numero de columna: ";
 		std::cin>>numeroDeColumna;
 	}while(this->juego->getTablero()->getTableo()->obtener(numeroDePlano)->obtener(1)->obtener(numeroDeColumna)->verFicha()->verNumeroDeJugador()!=0);
 
@@ -145,6 +145,7 @@ bool Menu::elegirSiJugarUnaCarta(){
 		std::cout<<" ¿Quiere jugar una carta? "<<std::endl;
 		std::cout<<"1 - Si"<<std::endl;
 		std::cout<<"2 - No"<<std::endl;
+		std::cout<<"Ingrese su opcion: ";
 		std::cin>>opcion;
 	}while(opcion != "1" && opcion != "2");
 
@@ -160,7 +161,7 @@ void Menu::ingresarValorNEnFila(){
 	int valorNEnFila = 0;
 
 	do{
-		std::cout<<"Ingrese el valor de N en fila(tiene que ser mayor o igual a 3): "<<std::endl;
+		std::cout<<"Ingrese el valor de N en fila(tiene que ser mayor o igual a 3): ";
 		std::cin>>valorNEnFila;
 	}while(valorNEnFila < 3);
 

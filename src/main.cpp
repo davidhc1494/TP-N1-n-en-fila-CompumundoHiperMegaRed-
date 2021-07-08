@@ -14,12 +14,9 @@ using namespace std;
 #include "Tablero.h"
 #include "Juego.h"
 #include "Menu.h"
+
 int main(){
-
 	Menu* m = new Menu();
-
 	m->Jugar();
-
 	return 0;
-
 }
