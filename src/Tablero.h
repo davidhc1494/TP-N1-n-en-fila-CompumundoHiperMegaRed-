@@ -46,6 +46,12 @@ public:
 	bool revisarEnZ(Casillero* casillero);
 
 	bool revisarLinea(Casillero* casillero,std::string coordenada1,std::string coordenada2);
+	
+	/*
+	 * PRE: -
+	 * POST: Destruye el tablero, liberando la memoria utilizada.-
+	 */
+	~Tablero();
 
 
 };
