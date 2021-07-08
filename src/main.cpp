@@ -87,6 +87,8 @@ int main(){
 	Menu* m = new Menu();
 
 	m->Jugar();
+	m->~Menu();
+	delete m;
 
 	return 0;
 
