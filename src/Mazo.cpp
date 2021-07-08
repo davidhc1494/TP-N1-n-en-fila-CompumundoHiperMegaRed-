@@ -48,6 +48,6 @@ void Mazo::inicializarMazo(){
 	}
 }
 
-Mazo::Mazo(){
+Mazo::~Mazo(){
 	delete this->cartas;
 }
