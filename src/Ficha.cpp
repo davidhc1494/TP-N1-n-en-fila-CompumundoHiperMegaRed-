@@ -21,3 +21,6 @@ int Ficha::verNumeroDeJugador(){
 void Ficha::cambiarNumeroDeFicha(int nuevoNumeroDeJugador){
 	this->numeroDeJugador = nuevoNumeroDeJugador;
 }
+
+Ficha::~Ficha(){
+}
