@@ -47,3 +47,7 @@ void Mazo::inicializarMazo(){
 		i++;
 	}
 }
+
+Mazo::Mazo(){
+	delete this->cartas;
+}
