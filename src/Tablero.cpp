@@ -301,6 +301,7 @@ void Tablero::vincularConCasilleroAdyacentes(){
 }
 
 Tablero::~Tablero(){
+	this->tablero->~Lista();
 	delete this->tablero;
 }
 
