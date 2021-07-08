@@ -58,7 +58,7 @@ public:
 	 * PRE: -
 	 * POST: Destruye el jugador, liberando la memoria utilizada.-
 	 */
-	Jugador~Jugador();
+	~Jugador();
 
 };
 
