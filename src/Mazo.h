@@ -51,6 +51,12 @@ public:
 	 * Post: saca una carta del tope del mazo.
 	 */
 	Carta* sacarCarta();
+	
+	/*
+	 * PRE: -
+	 * POST: Destruye el mazo, liberando la memoria utilizada.
+	 */
+	~Mazo();
 
 
 };
