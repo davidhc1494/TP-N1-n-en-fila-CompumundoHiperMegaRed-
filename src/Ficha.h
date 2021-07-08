@@ -30,7 +30,7 @@ public:
 	
 	//PRE: -
 	//POST: -
-	Ficha::~Ficha();
+	~Ficha();
 
 
 };
