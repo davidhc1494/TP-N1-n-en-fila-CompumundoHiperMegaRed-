@@ -56,7 +56,7 @@ void Tablero::verTablero(){
 
 	while(this->tablero->avanzarCursor()){
 
-		std::cout<<"Plano N°: "<<numeroDePlano<<std::endl;
+		std::cout<<"Plano NÂ°: "<<numeroDePlano<<std::endl;
 		this->tablero->obtenerCursor()->iniciarCursor();
 
 		while(this->tablero->obtenerCursor()->avanzarCursor()){
@@ -298,6 +298,10 @@ void Tablero::vincularConCasilleroAdyacentes(){
 	}
 	//primitiva para ver lista de adyacancia
 	//this->tablero->obtener(3)->obtener(1)->obtener(1)->verCasilleroAdyacentes();
+}
+
+Tablero::~Tablero(){
+	delete this->tablero;
 }
 
 
