@@ -45,6 +45,9 @@ void Mazo::inicializarMazo(){
 		Carta* nuevaCarta3 = new Carta(CartaNoLevantaCarta);
 		this->agregarCartas(nuevaCarta3);
 		i++;
+		Carta* nuevaCarta4 = new Carta(CartaDescartarTodaLaMano);
+		this->agregarCartas(nuevaCarta4);
+		i++;
 	}
 }
 

@@ -11,7 +11,8 @@
 enum TipoDeCarta{
 	CartaBloquearTurno,
 	CartaJugadaDoble,
-	CartaNoLevantaCarta
+	CartaNoLevantaCarta,
+	CartaDescartarTodaLaMano
 };
 
 class Carta {

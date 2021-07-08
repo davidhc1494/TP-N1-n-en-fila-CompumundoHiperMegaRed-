@@ -33,7 +33,7 @@ void Casillero::verCasilleroAdyacentes(){
 	this->listaDeCasilleroAdyacentes->iniciarCursor();
 
 	while(this->listaDeCasilleroAdyacentes->avanzarCursor()){
-		std::cout<<"NÂ° jugador: "<<this->listaDeCasilleroAdyacentes->obtenerCursor()->getCasillero()->verFicha()->verNumeroDeJugador()<<"  ||  Coordenada: "<<this->listaDeCasilleroAdyacentes->obtenerCursor()->getCoordenada()<<std::endl;
+		std::cout<<"N° jugador: "<<this->listaDeCasilleroAdyacentes->obtenerCursor()->getCasillero()->verFicha()->verNumeroDeJugador()<<"  ||  Coordenada: "<<this->listaDeCasilleroAdyacentes->obtenerCursor()->getCoordenada()<<std::endl;
 	}
 }
 
@@ -68,6 +68,5 @@ void CasilleroAdyacente::setCasilleroAdyacente(Casillero* casillero){
 
 CasilleroAdyacente::~CasilleroAdyacente(){
 }
-
 
 

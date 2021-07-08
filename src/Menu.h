@@ -27,11 +27,11 @@ public:
 	void ingresarCantidadDeJugadoresAJugar();
 
 	bool ingresarPlanoYColumna(Jugador* jugador);
-	
-	/*
-	 * PRE: -
-	 * POST: Destruye el menú, liberando la memoria utilizada.-
-	 */
+
+	bool elegirSiJugarUnaCarta();
+
+	void ingresarValorNEnFila();
+
 	~Menu();
 
 };

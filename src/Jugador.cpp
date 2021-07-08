@@ -42,3 +42,6 @@ Jugador::~Jugador(){
 	delete this->cartas;
 	delete this->fichas;
 }
+
+
+

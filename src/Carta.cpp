@@ -16,6 +16,8 @@ Carta::Carta(TipoDeCarta tipoDeCarta){
 		this->nombreDeTipoDeCarta = "Jugar doble";
 	}else if(tipoDeCarta == CartaNoLevantaCarta){
 		this->nombreDeTipoDeCarta = "No levantar carta";
+	}else if(tipoDeCarta == CartaDescartarTodaLaMano){
+		this->nombreDeTipoDeCarta = "El siguiente jugador descarta todas sus mano";
 	}
 
 

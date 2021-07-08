@@ -10,7 +10,7 @@ Tablero::Tablero(){
 
 	this->tablero = new Lista<Lista<Lista<Casillero*>*>*>();
 	this->tamanio = 0;
-
+	this->valorDeNEnFila = 0;
 }
 
 int Tablero::getTamanio(){
@@ -19,6 +19,14 @@ int Tablero::getTamanio(){
 
 void Tablero::setTamanio(int tamanio){
 	this->tamanio = tamanio;
+}
+
+void Tablero::setValorDeNEnFila(int nuevoValor){
+	this->valorDeNEnFila = nuevoValor;
+}
+
+int Tablero::getValorDeNEnFila(){
+	return this->valorDeNEnFila;
 }
 
 void Tablero::inicializarTablero(int x,int y,int z){
@@ -56,7 +64,7 @@ void Tablero::verTablero(){
 
 	while(this->tablero->avanzarCursor()){
 
-		std::cout<<"Plano NÂ°: "<<numeroDePlano<<std::endl;
+		std::cout<<"Plano N°: "<<numeroDePlano<<std::endl;
 		this->tablero->obtenerCursor()->iniciarCursor();
 
 		while(this->tablero->obtenerCursor()->avanzarCursor()){
@@ -131,7 +139,7 @@ bool Tablero::jugarFicha(int numeroDePlano,int numeroDeColumna,int numeroDeJugad
 }
 
 bool Tablero::revisarEnZ(Casillero* casillero){
-	int valorDeN = 3;
+	int valorDeN = this->getValorDeNEnFila();
 	int contadorDeFichasIguales = 1;
 	bool gano = false;
 	Casillero* nuevoCasillero = casillero;
@@ -157,7 +165,7 @@ bool Tablero::revisarEnZ(Casillero* casillero){
 }
 
 bool Tablero::revisarLinea(Casillero* casillero,std::string coordenada1,std::string coordenada2){
-	int valorDeN = 3;
+	int valorDeN = this->getValorDeNEnFila();
 	int contadorDeFichasIguales = 1;
 	bool gano = false;
 	Casillero* nuevoCasillero = casillero;
@@ -187,7 +195,7 @@ bool Tablero::revisarLinea(Casillero* casillero,std::string coordenada1,std::str
 
 	if(contadorDeFichasIguales == valorDeN){
 		gano = true;
-		std::cout<<"Gano el jugador Numero: "<<casillero->verFicha()->verNumeroDeJugador()<<" contador: "<<contadorDeFichasIguales<<std::endl;
+		std::cout<<"------  GANO EL JUGADOR N°: "<<casillero->verFicha()->verNumeroDeJugador()<<" ------"<<std::endl;
 	}
 
 	return gano;
@@ -303,7 +311,6 @@ void Tablero::vincularConCasilleroAdyacentes(){
 Tablero::~Tablero(){
 	delete this->tablero;
 }
-
 
 
 

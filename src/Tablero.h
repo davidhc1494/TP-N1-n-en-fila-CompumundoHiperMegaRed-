@@ -18,12 +18,17 @@ private:
 
 	Lista<Lista<Lista<Casillero*>*>*>* tablero;
 	int tamanio;
+	int valorDeNEnFila;
 
 public:
 
 	//PRE:-
 	//POS:se crea un tablero
 	Tablero();
+
+	void setValorDeNEnFila(int nuevoValor);
+
+	int getValorDeNEnFila();
 
 	//PRE:tiene que existir el tablero
 	//POS:se inicializa un tablero con todos los casillero en caon fichas con numero de jucador igual a 0(cero)
@@ -46,11 +51,7 @@ public:
 	bool revisarEnZ(Casillero* casillero);
 
 	bool revisarLinea(Casillero* casillero,std::string coordenada1,std::string coordenada2);
-	
-	/*
-	 * PRE: -
-	 * POST: Destruye el tablero, liberando la memoria utilizada.-
-	 */
+
 	~Tablero();
 
 

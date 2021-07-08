@@ -36,9 +36,9 @@ public:
 	void tomarCarta(Jugador* jugador);
 
 	void mostrarCartasDeJugador(Jugador* jugador);
-	
-	//PRE: -
-	//POST: Destruye el juego, liberando la memoria reservada.-
+
+	void descartarManoDeJugador(Jugador* jugador);
+
 	~Juego();
 
 };

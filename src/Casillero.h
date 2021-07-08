@@ -24,7 +24,7 @@ private:
 public:
 
 	//PRE:-
-	//POS: se crea un nuevo casillero con el numero de identificacion del jugador dueño de la ficha como 0
+	//POS: se crea un nuevo casillero con el numero de identificacion del jugador due�o de la ficha como 0
 	Casillero();
 
 	//PRE:tiene que haber creado un casillero
@@ -36,9 +36,7 @@ public:
 	void agregarCasilleroAdyacente(Casillero* casillero, std::string coordenada);
 
 	void verCasilleroAdyacentes();
-	
-	//PRE:-
-	//POST: Destruye el casillero, liberando la memoria dinámica utilizada.-
+
 	~Casillero();
 
 };
@@ -64,8 +62,6 @@ Casillero* getCasillero();
 
 void setCasilleroAdyacente(Casillero* casillero);
 
-//PRE: -
-//POST: -
 ~CasilleroAdyacente();
 
 };
