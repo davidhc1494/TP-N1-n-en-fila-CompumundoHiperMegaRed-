@@ -27,6 +27,10 @@ public:
 	//PRE:tiene que haber un objeto ficha creado, y se recibe por parametro el nuevo numero de identificacion
 	//POS:cambia el numero de identificaion del juagador al que le pertenece la ficha
 	void cambiarNumeroDeFicha(int nuevoNumeroDeJugador);
+	
+	//PRE: -
+	//POST: -
+	Ficha::~Ficha();
 
 
 };
