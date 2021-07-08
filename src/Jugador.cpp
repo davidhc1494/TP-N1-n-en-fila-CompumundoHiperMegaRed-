@@ -38,3 +38,7 @@ Carta* Jugador::canjearCarta(int numeroDeCarta){
 	return carta;
 }
 
+Jugador::~Jugador(){
+	delete this->cartas;
+	delete this->fichas;
+}
