@@ -27,8 +27,14 @@ public:
 	 * Post: crea el mazo con una cantidad de cartas que se pasan por parametro.
 	 */
 
+	//PRE: tiene que existir mazo
+	//POS: llena el mazo de cartas
 	void inicializarMazo();
 
+	/*
+	 * Pre:
+	 * Post: crea el mazo con una cantidad de cartas que se pasan por parametro.
+	 */
 	Mazo(int cantidadDeCartas);
 
 	/*
@@ -51,7 +57,7 @@ public:
 	 * Post: saca una carta del tope del mazo.
 	 */
 	Carta* sacarCarta();
-
+	
 	~Mazo();
 
 

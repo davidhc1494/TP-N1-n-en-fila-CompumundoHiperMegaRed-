@@ -24,19 +24,27 @@ private:
 public:
 
 	//PRE:-
-	//POS: se crea un nuevo casillero con el numero de identificacion del jugador due�o de la ficha como 0
+	//POS: se crea un nuevo casillero con el numero de identificacion del jugador dueño de la ficha como 0
 	Casillero();
 
 	//PRE:tiene que haber creado un casillero
 	//POS:devuelve un puntero a la ficha que esta en el casillero
 	Ficha* verFicha();
 
+	//PRE: tiene que existir casillero
+	//POS: devuelve la lista de casillero adyacentes
 	Lista<CasilleroAdyacente*>* getListaDeCasilleroAdyacentes();
 
+	//PRE: tiene que existir casillero
+	//POS: agrea un nuevo casillero adyacente a la lista con su respectica coordenada
 	void agregarCasilleroAdyacente(Casillero* casillero, std::string coordenada);
 
+	//PRE: tiene que existir casillero y tiene que tener casilleros adyacentes en su lista
+	//POS: muestra por consola la lista de casilleros adyacentes
 	void verCasilleroAdyacentes();
-
+	
+	//PRE:-
+	//POST: Destruye el casillero, liberando la memoria dinámica utilizada.-
 	~Casillero();
 
 };
@@ -52,16 +60,28 @@ private:
 
 public:
 
+//PRE:-
+//POS:creas un casillero adyacente
 CasilleroAdyacente(std::string coordenada, Casillero* casillero);
 
+//PRE: tiene que existir casillero adyacente
+//POS: devuelve la coordenada del casillero
 std::string getCoordenada();
 
+//PRE: tiene que existir casillero adyacente
+//POS: setea la coordenada por la nueva pasa como parametro
 void setCoordenada(std::string coordenada);
 
+//PRE: tiene que existir casillero adyacente
+//POS: devuelve el casillero
 Casillero* getCasillero();
 
+//PRE: tiene que existir casillero adyacente
+//pos: setea el casillero
 void setCasilleroAdyacente(Casillero* casillero);
 
+//PRE: -
+//POST: -
 ~CasilleroAdyacente();
 
 };

@@ -7,21 +7,23 @@
 
 #include "Jugador.h"
 
-Jugador::Jugador(int numeroDeJugador){
+Jugador::Jugador(int numeroDeJugador, char simboloFicha){
 	if (numeroDeJugador < 0) {
 		throw("el numero de Jugador es menor a cero.");
 	}
 	this->cartas = new Lista<Carta*>;
 	this->numeroDeJugador = numeroDeJugador;
-	this->fichas = new Ficha(numeroDeJugador);
+	this->simboloFicha = simboloFicha;
+	this->fichas = new Ficha(numeroDeJugador, simboloFicha);
 }
 
 Ficha* Jugador::getFicha(){
 	return this->fichas;
 }
 
-void Jugador::setFicha(int nuevoNumeroDeFicha){
+void Jugador::setFicha(int nuevoNumeroDeFicha, char simboloDeFicha){
 	this->numeroDeJugador = nuevoNumeroDeFicha;
+	this->simboloFicha = simboloDeFicha;
 }
 
 void Jugador::guardarCarta(Carta* carta){
@@ -39,9 +41,8 @@ Carta* Jugador::canjearCarta(int numeroDeCarta){
 }
 
 Jugador::~Jugador(){
+	this->cartas->~Lista();
 	delete this->cartas;
+	this->fichas->~Ficha();
 	delete this->fichas;
 }
-
-
-

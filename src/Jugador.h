@@ -17,6 +17,7 @@
 class Jugador {
 private:
 	int numeroDeJugador;
+	char simboloFicha;
 	Ficha* fichas;
 	Lista<Carta*>* cartas;
 
@@ -25,16 +26,20 @@ public:
 	 * Pre: numero de jugador debe ser mayor a cero.
 	 * Post: crea una instacia de Jugador.
 	 */
-	Jugador(int numeroDeJugador);
+	Jugador(int numeroDeJugador, char simboloFicha);
 
 	/*
 	 * Pre:
 	 * Post: saca una carta del maso de cartas y la agrega a la lista de cartas del jugador.
 	 */
 
+	//PRE:tiene que existir jugador
+	//POS: devuelve la ficha del jugador
 	Ficha* getFicha();
 
-	void setFicha(int nuevoNumeroDeFicha);
+	//PRE:tiene que existir jugador
+	//POS cambia el numero y el simbolo de la ficha
+	void setFicha(int nuevoNumeroDeFicha, char simboloDeFicha);
 
 	/*
 	 * Pre:
@@ -53,8 +58,13 @@ public:
 	 */
 
 	void guardarCarta(Carta* carta);
-
+	
+	/*
+	 * PRE: -
+	 * POST: Destruye el jugador, liberando la memoria utilizada.-
+	 */
 	~Jugador();
+
 };
 
 

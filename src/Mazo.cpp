@@ -52,5 +52,6 @@ void Mazo::inicializarMazo(){
 }
 
 Mazo::~Mazo(){
+	this->cartas->~Cola();
 	delete this->cartas;
 }

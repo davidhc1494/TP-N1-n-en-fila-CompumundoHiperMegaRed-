@@ -29,6 +29,8 @@ public:
 	 */
 	Carta(TipoDeCarta tipoDeCarta);
 
+	//PRE: tiene que existir carta
+	//POS: devuelve el nombre de la carta
 	std::string getNombreDeTipoDeCarta();
 
 	/*

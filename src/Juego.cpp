@@ -26,9 +26,9 @@ Lista<Jugador*>* Juego::getListaDeJugadores(){
 	return this->listaDeJugadores;
 }
 
-void Juego::agregarJugador(int numeroDeNuevoJugador){
+void Juego::agregarJugador(int numeroDeNuevoJugador, char simboloFicha){
 
-	Jugador* nuevoJugador = new Jugador(numeroDeNuevoJugador);
+	Jugador* nuevoJugador = new Jugador(numeroDeNuevoJugador, simboloFicha);
 
 	this->listaDeJugadores->agregar(nuevoJugador);
 
@@ -78,8 +78,13 @@ void Juego::descartarManoDeJugador(Jugador* jugador){
 }
 
 Juego::~Juego(){
+	
+	this->tablero->~Tablero();
 	delete this->tablero;
+	this->mazo->~Mazo();
 	delete this->mazo;
+	this->listaDeJugadores->~Lista();
 	delete this->listaDeJugadores;
 }
+
 

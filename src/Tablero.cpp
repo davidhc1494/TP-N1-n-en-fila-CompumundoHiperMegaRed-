@@ -11,6 +11,7 @@ Tablero::Tablero(){
 	this->tablero = new Lista<Lista<Lista<Casillero*>*>*>();
 	this->tamanio = 0;
 	this->valorDeNEnFila = 0;
+
 }
 
 int Tablero::getTamanio(){
@@ -64,22 +65,31 @@ void Tablero::verTablero(){
 
 	while(this->tablero->avanzarCursor()){
 
-		std::cout<<"Plano N°: "<<numeroDePlano<<std::endl;
+		std::cout<<"    Plano NÂ°: "<<numeroDePlano<<std::endl<<std::endl<<"      ";
 		this->tablero->obtenerCursor()->iniciarCursor();
-
+		for(int i = 0; i < this->getTamanio(); i++){
+			std::cout<<" "<<i+1<<"   ";
+		}
+		std::cout<<std::endl<<"    ==";
+		for(int i = 0; i < this->getTamanio(); i++){
+			std::cout<<"=====";
+		}
+		std::cout<<std::endl;
 		while(this->tablero->obtenerCursor()->avanzarCursor()){
 
 			this->tablero->obtenerCursor()->obtenerCursor()->iniciarCursor();
+			std::cout<<"    ||";
 
 			while(this->tablero->obtenerCursor()->obtenerCursor()->avanzarCursor()){
-
-				std::cout<<this->tablero->obtenerCursor()->obtenerCursor()->obtenerCursor()->verFicha()->verNumeroDeJugador()<<" ";
-
+				std::cout<<" "<<this->tablero->obtenerCursor()->obtenerCursor()->obtenerCursor()->verFicha()->verTipoDeFicha()<<" "<<"||";
 			}
-			std::cout<<""<<std::endl;
+			std::cout<<""<<std::endl<<"    ==";
+			for(int i = 0; i < this->getTamanio(); i++){
+				std::cout<<"=====";
+			}
+			std::cout<<std::endl;
 		}
-
-		std::cout<<""<<std::endl;
+		std::cout<<std::endl;
 		numeroDePlano++;
 	}
 
@@ -89,7 +99,7 @@ void Tablero::verTablero(){
 
 }
 
-bool Tablero::jugarFicha(int numeroDePlano,int numeroDeColumna,int numeroDeJugador){
+bool Tablero::jugarFicha(int numeroDePlano,int numeroDeColumna,int numeroDeJugador, char tipoDeFicha){
 
 	bool fichaJugada = false;
 	bool gano = false;
@@ -100,7 +110,7 @@ bool Tablero::jugarFicha(int numeroDePlano,int numeroDeColumna,int numeroDeJugad
 
 		if(this->tablero->obtener(numeroDePlano)->obtener(contadorDeFilas)->obtener(numeroDeColumna)->verFicha()->verNumeroDeJugador() == 0 ){
 
-			this->tablero->obtener(numeroDePlano)->obtener(contadorDeFilas)->obtener(numeroDeColumna)->verFicha()->cambiarNumeroDeFicha(numeroDeJugador);
+			this->tablero->obtener(numeroDePlano)->obtener(contadorDeFilas)->obtener(numeroDeColumna)->verFicha()->cambiarNumeroDeFicha(numeroDeJugador, tipoDeFicha);
 
 			//std::cout<<""<<std::endl;
 			if(this->revisarEnZ(this->tablero->obtener(numeroDePlano)->obtener(contadorDeFilas)->obtener(numeroDeColumna))){
@@ -159,7 +169,9 @@ bool Tablero::revisarEnZ(Casillero* casillero){
 
 	if(contadorDeFichasIguales == valorDeN){
 		gano = true;
-		std::cout<<"Gano el jugador Numero: "<<casillero->verFicha()->verNumeroDeJugador()<<" contador: "<<contadorDeFichasIguales<<std::endl;
+		std::cout<<std::endl;
+		std::cout<<" ------  GANO EL JUGADOR NÂ°: "<<casillero->verFicha()->verNumeroDeJugador()<<" ------"<<std::endl;
+		std::cout<<std::endl;
 	}
 	return gano;
 }
@@ -195,7 +207,9 @@ bool Tablero::revisarLinea(Casillero* casillero,std::string coordenada1,std::str
 
 	if(contadorDeFichasIguales == valorDeN){
 		gano = true;
-		std::cout<<"------  GANO EL JUGADOR N°: "<<casillero->verFicha()->verNumeroDeJugador()<<" ------"<<std::endl;
+		std::cout<<std::endl;
+		std::cout<<"------  GANO EL JUGADOR NÂ°: "<<casillero->verFicha()->verNumeroDeJugador()<<" ------"<<std::endl;
+		std::cout<<std::endl;
 	}
 
 	return gano;
@@ -309,8 +323,10 @@ void Tablero::vincularConCasilleroAdyacentes(){
 }
 
 Tablero::~Tablero(){
+	this->tablero->~Lista();
 	delete this->tablero;
 }
+
 
 
 

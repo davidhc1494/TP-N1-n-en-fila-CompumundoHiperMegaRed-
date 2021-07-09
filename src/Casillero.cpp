@@ -9,7 +9,7 @@
 
 Casillero::Casillero(){
 
-	this->ficha = new Ficha(0);
+	this->ficha = new Ficha(0,' ');
 	this->listaDeCasilleroAdyacentes = new Lista<CasilleroAdyacente*>;
 
 }
@@ -33,12 +33,14 @@ void Casillero::verCasilleroAdyacentes(){
 	this->listaDeCasilleroAdyacentes->iniciarCursor();
 
 	while(this->listaDeCasilleroAdyacentes->avanzarCursor()){
-		std::cout<<"N° jugador: "<<this->listaDeCasilleroAdyacentes->obtenerCursor()->getCasillero()->verFicha()->verNumeroDeJugador()<<"  ||  Coordenada: "<<this->listaDeCasilleroAdyacentes->obtenerCursor()->getCoordenada()<<std::endl;
+		std::cout<<"NÂ° jugador: "<<this->listaDeCasilleroAdyacentes->obtenerCursor()->getCasillero()->verFicha()->verNumeroDeJugador()<<"  ||  Coordenada: "<<this->listaDeCasilleroAdyacentes->obtenerCursor()->getCoordenada()<<std::endl;
 	}
 }
 
 Casillero::~Casillero(){
+	this->ficha->~Ficha();
 	delete this->ficha;
+	this->listaDeCasilleroAdyacentes->~Lista();
 	delete this->listaDeCasilleroAdyacentes;
 }
 
@@ -68,5 +70,6 @@ void CasilleroAdyacente::setCasilleroAdyacente(Casillero* casillero){
 
 CasilleroAdyacente::~CasilleroAdyacente(){
 }
+
 
 
